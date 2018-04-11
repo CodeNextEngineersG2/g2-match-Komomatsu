@@ -43,6 +43,18 @@ var resetButton, musicButton;
    }
  */
 
+ function loadImages () {
+    backImage = loadImage("assets/img/back.png");
+    boltImage = loadImage("assets/img/bolt.png");
+    cloudImage = loadImage("assets/img/cloud.png");
+    sunImage = loadImage("assets/img/sun.png");
+    moonImage = loadImage("assets/img/moon.png");
+    smileyImage = loadImage("assets/img/smiley.png");
+    heartImage = loadImage("assets/img/heart.png");
+    transitionImage1 = loadImage("assets/img/transition1.png");
+    transitionImage2 = loadImage("assets/img/transition2.png");
+    ttransitionImage3 = loadImage("assets/img/transition3.png");
+ }
 
 /*
  * function loadAnimations()
@@ -55,6 +67,15 @@ var resetButton, musicButton;
      myAnimation = loadAnimation(img1, img2, img3, img4);
    }
  */
+
+ function loadAnimations() {
+    boltAnimation = loadAnimation(backImage, transitionImage1, transitionImage2, transitionImage3, boltImage);
+    cloudAnimation = loadAnimation(backImage, transitionImage1, transitionImage2, transitionImage3, cloudImage);
+    sunAnimation = loadAnimation(backImage, transitionImage1, transitionImage2, transitionImage3, sunImage);
+    moonAnimation = loadAnimation(backImage, transitionImage1, transitionImage2, transitionImage3, moonImage);
+    smileyAnimation = loadAnimation(backImage, transitionImage1, transitionImage2, transitionImage3, smileyImage);
+    heartAnimation = loadAnimation(backImage, transitionImage1, transitionImage2, transitionImage3, heartImage);
+ }
 
 
 /*
@@ -77,6 +98,10 @@ var resetButton, musicButton;
  * is essentially a "pre-setup" function. 
  */
 
+function preload() {
+  loadImages();
+  loadAnimations();
+ }
 
 /*
  * function setup()
@@ -84,6 +109,16 @@ var resetButton, musicButton;
  * Therefore, assets are assumed to have been loaded and ready before this
  * function is called.
  */
+
+function setup() {
+  gameScreen = createCanvas(790,370);
+  gameScreen.parent("#game-screen");
+  spriteWidth = 120;
+  spriteHeight = 168;
+  spriteX = 70;
+  spriteY = 95;
+  imageArray = [ "boltImage", "cloudImage", "sunImage", "moonImage", "smileyImage", "heartImage"];
+} 
 
 
 /*
@@ -121,6 +156,16 @@ var resetButton, musicButton;
    image.resize(40, 50);
  */
 
+ function resizeIamges() {
+  var i;
+  for (i = 0; i < imageArray.length; i++) {
+
+    imageArray[i].resize(spriteWidth,spriteHeight);
+
+  }
+
+ }
+
 
 /*
  * function createSprites()
@@ -135,6 +180,9 @@ var resetButton, musicButton;
    }
  */
 
+ function createSprites() {
+  
+ }
 
 /*
  * function addAnimations()
